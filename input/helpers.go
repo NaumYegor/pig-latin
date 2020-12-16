@@ -11,6 +11,7 @@ const (
 	upperLetterIndexSmall = 122
 )
 
+// isLetter checks if this byte is letter in ascii or another symbol
 func isLetter(letter byte) bool {
 	isCapital := letter <= upperLetterIndexCap && letter >= lowerLetterIndexCap
 	isSmall := letter <= upperLetterIndexSmall && letter >= lowerLetterIndexSmall
@@ -21,6 +22,7 @@ func isLetter(letter byte) bool {
 	return true
 }
 
+// isVowel checks if this byte is vowel
 func isVowel(letter byte) bool {
 	for _, vowel := range vowels {
 		if letter == vowel {
@@ -30,6 +32,7 @@ func isVowel(letter byte) bool {
 	return false
 }
 
+// translateWord translates word to pig latin
 func translateWord(word string) string {
 	if len(word) == 1 && !isLetter(word[0]) {
 		return word

@@ -12,6 +12,7 @@ type Input struct {
 	separatedWords []string
 }
 
+// ReadInput reads one line from the os.Stdin
 func (i *Input) ReadInput() {
 	reader := bufio.NewReader(os.Stdin)
 
@@ -30,6 +31,7 @@ func (i *Input) ReadInput() {
 	i.text = string(bytesVal)
 }
 
+//TranslateText translates all words in the Input and returns translated text
 func (i *Input) TranslateText() string {
 	translatedWords := make([]string, 0)
 
@@ -42,6 +44,7 @@ func (i *Input) TranslateText() string {
 	return strings.ToLower(strings.Join(translatedWords, " "))
 }
 
+//getSeparatedWords updates the Input.separatedWords field of Input object
 func (i *Input) getSeparatedWords() {
 	separatedWords := strings.Split(i.text, " ")
 	i.separatedWords = separatedWords
