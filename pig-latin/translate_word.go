@@ -1,37 +1,5 @@
 package piglatin
 
-var (
-	vowels = [...]byte{'a', 'e', 'i', 'o', 'A', 'E', 'I', 'O'}
-)
-
-const (
-	lowerLetterIndexCap   = 65
-	upperLetterIndexCap   = 90
-	lowerLetterIndexSmall = 97
-	upperLetterIndexSmall = 122
-)
-
-// isVowel checks if this byte is vowel
-func isVowel(letter byte) bool {
-	for _, vowel := range vowels {
-		if letter == vowel {
-			return true
-		}
-	}
-	return false
-}
-
-// isLetter checks if this byte is letter in ascii or another symbol
-func isLetter(letter byte) bool {
-	isCapital := letter <= upperLetterIndexCap && letter >= lowerLetterIndexCap
-	isSmall := letter <= upperLetterIndexSmall && letter >= lowerLetterIndexSmall
-
-	if !isCapital && !isSmall {
-		return false
-	}
-	return true
-}
-
 // TranslateWord translates word to pig latin
 func TranslateWord(word string) string {
 	if len(word) == 1 {
