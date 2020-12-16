@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/naumyegor/pig-latin/input"
+	"github.com/naumyegor/pig-latin/leet-parody"
 	piglatin "github.com/naumyegor/pig-latin/pig-latin"
-	"github.com/naumyegor/pig-latin/translator"
 )
 
 func main() {
@@ -17,9 +17,9 @@ func main() {
 
 	fmt.Println("Enter your phrase to encode:")
 	encdec.ReadInput()
-	fmt.Println(encdec.TranslateText(translator.EncodeWord))
+	fmt.Println(encdec.TranslateText(leetparody.EncodeWord))
 
 	fmt.Println("Enter your phrase to decode:")
 	encdec.ReadInput()
-	fmt.Println(encdec.TranslateText(translator.DecodeWord))
+	fmt.Println(encdec.TranslateText(leetparody.DecodeWord))
 }
