@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/naumyegor/pig-latin/input"
-	"github.com/naumyegor/pig-latin/leet-parody"
-	piglatin "github.com/naumyegor/pig-latin/pig-latin"
+	"github.com/naumyegor/test-translators/input"
+	"github.com/naumyegor/test-translators/leet-parody"
+	"github.com/naumyegor/test-translators/pig-latin"
 )
 
 func main() {

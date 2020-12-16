@@ -1,3 +1,3 @@
-module github.com/naumyegor/pig-latin
+module github.com/naumyegor/test-translators
 
 go 1.15
