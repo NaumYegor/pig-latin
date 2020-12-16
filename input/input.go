@@ -32,13 +32,19 @@ func (i *Input) ReadInput() {
 }
 
 //TranslateText translates all words in the Input and returns translated text
-func (i *Input) TranslateText() string {
+func (i *Input) TranslateText(function func(string) string) string {
+	defer func() {
+		if err := recover(); err != nil {
+			log.Println("Not valid string!")
+		}
+	}()
+
 	translatedWords := make([]string, 0)
 
 	i.getSeparatedWords()
 
 	for _, word := range i.separatedWords {
-		translatedWords = append(translatedWords, translateWord(word))
+		translatedWords = append(translatedWords, function(word))
 	}
 
 	return strings.ToLower(strings.Join(translatedWords, " "))

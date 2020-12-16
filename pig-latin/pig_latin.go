@@ -1,4 +1,4 @@
-package input
+package piglatin
 
 var (
 	vowels = [...]byte{'a', 'e', 'i', 'o', 'A', 'E', 'I', 'O'}
@@ -11,6 +11,16 @@ const (
 	upperLetterIndexSmall = 122
 )
 
+// isVowel checks if this byte is vowel
+func isVowel(letter byte) bool {
+	for _, vowel := range vowels {
+		if letter == vowel {
+			return true
+		}
+	}
+	return false
+}
+
 // isLetter checks if this byte is letter in ascii or another symbol
 func isLetter(letter byte) bool {
 	isCapital := letter <= upperLetterIndexCap && letter >= lowerLetterIndexCap
@@ -22,19 +32,9 @@ func isLetter(letter byte) bool {
 	return true
 }
 
-// isVowel checks if this byte is vowel
-func isVowel(letter byte) bool {
-	for _, vowel := range vowels {
-		if letter == vowel {
-			return true
-		}
-	}
-	return false
-}
-
-// translateWord translates word to pig latin
-func translateWord(word string) string {
-	if len(word) == 1 && !isLetter(word[0]) {
+// TranslateWord translates word to pig latin
+func TranslateWord(word string) string {
+	if len(word) == 1 {
 		return word
 	}
 
